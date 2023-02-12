@@ -1,0 +1,46 @@
+﻿@model List<User>
+@{
+    Layout = "Adminlayout";
+}
+
+<div class="row col-10 offset-1">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3>List User</h3>
+            </div>
+
+            <div class="card-body">
+                <a href="/user/create" class="btn btn-success">Add User</a>
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Fullname</th>
+                            <th>Role</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var user in Model)
+                        {
+                            <tr>
+                                <td>@user.Username</td>
+                                <td>@user.Fullname</td>
+                                <td>@user.Roles.Name</td>
+                                <td>
+                                    <a href="/user/detail/@user.Id" class="btn btn-primary">Detail</a>
+                                    <a href="/user/edit/@user.Id" class="btn btn-warning">Edit</a>
+                                    <a href="/user/delete/@user.Id" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<h1>Ini index User,hai aku @ViewData["fullname"]</h1>*@
