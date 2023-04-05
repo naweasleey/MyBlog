@@ -19,5 +19,4 @@ namespace MyBlog.Models
         public Role Roles { get; set; }
   
     }
-
 }

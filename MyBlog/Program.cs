@@ -9,13 +9,13 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<MysqlConetext>(
     o => o.UseMySQL(builder.Configuration.GetConnectionString("mysql"))
-    );
+    );//nyambungin  ke database
 
 builder.Services.AddAuthentication()
     .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, o=>
     {
         o.LoginPath = "/account/login";
-    });
+    });//autentikasi
 
 
 var app = builder.Build();
@@ -35,6 +35,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");//nampil pertama
 
 app.Run();
